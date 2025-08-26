@@ -4,6 +4,29 @@
     <title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     My Portfolio</title>
     <style>
+        #about, #education {
+    background: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#about h2, #education h2 {
+    color: #6c63ff;
+    margin-bottom: 10px;
+}
+
+#education ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#education li {
+    margin: 8px 0;
+    font-size: 15px;
+}
+
         html {
     scroll-behavior: smooth;
     }
@@ -107,33 +130,79 @@ section:nth-of-type(3) {
         transform: translateY(0);
     }
 }
-    body.dark-mode {
+ /* Smooth transitions for background and text */
+body, header, nav a, .card, .project-card, footer, section {
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Dark Mode Base */
+body.dark-mode {
     background: #121212;
-    color: #f4f4f4;
+    color: #f5f5f5;
 }
 
-body.dark-mode header {
-    background: #1f1f1f;
+/* Headings and text in dark mode */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p,
+body.dark-mode a,
+body.dark-mode li {
+    color: #f5f5f5;
 }
 
+/* Navigation hover effect */
+body.dark-mode nav a:hover {
+    color: #ffdd57;
+}
+
+/* Cards and Project Cards */
+body.dark-mode .card,
 body.dark-mode .project-card {
     background: #1e1e1e;
-    color: white;
-    border: 1px solid #444;
+    color: #f5f5f5;
+    box-shadow: 0 4px 8px rgba(255,255,255,0.05);
 }
 
+/* About Me & Education Sections */
+body.dark-mode #about,
+body.dark-mode #education {
+    background: #1a1a1a;
+    color: #f5f5f5;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(255,255,255,0.05);
+}
+
+/* Footer */
 body.dark-mode footer {
     background: #1f1f1f;
+    color: #f5f5f5;
 }
 
-#darkModeBtn {
-    transition: 0.3s;
-}
-
-body.dark-mode #darkModeBtn {
+/* Dark Mode Toggle Button */
+.dark-btn {
+    position: fixed;
+    top: 15px;
+    right: 20px;
     background: #6c63ff;
     color: white;
+    border: none;
+    padding: 12px 14px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: background 0.3s ease, transform 0.3s ease;
 }
+
+.dark-btn:hover {
+    background: #ffdd57;
+    color: black;
+    transform: scale(1.1);
+}
+
+
   @media (max-width: 768px) {
     header img {
         width: 90px;
@@ -153,6 +222,144 @@ body.dark-mode #darkModeBtn {
         width: 90%;
     }
 }
+/* Internships Section */
+#internships {
+    padding: 40px;
+    margin: 20px auto;
+    text-align: center;
+    max-width: 600px; /* keeps it centered */
+}
+
+#internships h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Column layout */
+.internship-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Internship Cards */
+.intern-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.intern-card h3 {
+    color: #6c63ff;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.intern-card p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.intern-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Dark Mode */
+body.dark-mode .intern-card {
+    background: #1e1e1e;
+    color: #f5f5f5;
+    box-shadow: 0 4px 8px rgba(255,255,255,0.05);
+}
+
+body.dark-mode .intern-card h3 {
+    color: #ffdd57;
+}
+/* Projects Section */
+#projects {
+    padding: 50px;
+    background: #f8f9fa;
+    text-align: center;
+}
+
+#projects h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #333;
+    position: relative;
+}
+
+/* Add underline effect to heading */
+#projects h2::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background: #6c63ff;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Project Cards Container */
+.project-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Project Card Styling */
+.project-card {
+    background: white;
+    padding: 20px;
+    width: 300px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.project-card h3 {
+    font-size: 1.3rem;
+    color: #6c63ff;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Hover Effect */
+.project-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Dark Mode */
+body.dark-mode #projects {
+    background: #121212;
+}
+
+body.dark-mode .project-card {
+    background: #1e1e1e;
+    color: #f5f5f5;
+    box-shadow: 0 4px 8px rgba(255,255,255,0.05);
+}
+
+body.dark-mode .project-card h3 {
+    color: #ffdd57;
+}
+
+body.dark-mode .project-card p {
+    color: #ddd;
+}
+
+
 
     </style>
 </head>
@@ -165,32 +372,79 @@ body.dark-mode #darkModeBtn {
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
         </nav>
-        <button id="darkModeBtn" style="margin-top: 10px; padding: 8px 12px; background: white; color: #6c63ff; border: none; border-radius: 5px; cursor: pointer;">
+   <button id="darkModeBtn" style="margin-top: 10px; padding: 8px 12px; background: white; color: #6c63ff; border: none; border-radius: 5px; cursor: pointer;">
     Toggle Dark Mode
 </button>
+
+
 
     </header>
 
     <section id="about">
-        <h2>About Me</h2>
-        <p>I am a passionate developer who loves building websites and applications.</p>
-    </section>
+    <h2>About Me</h2>
+    <p>
+        Hello! I'm CH.RAMESH PRASAD, an aspiring web developer and programmer, passionate about building interactive, user-friendly applications.
+        I enjoy learning new technologies and creating projects that solve real-world problems.  
+        My interests include Web Development, Machine Learning.
+    </p>
+</section>
+ <section id="education">
+    <h2>Education</h2>
+    <ul>
+        <li><strong>Bachelor of Technology (B.Tech) in Computer Science</strong> – Gandhi Institue of engineering and technology, 2026</li>
+        <li><strong>Intermediate (Class 12)</strong> – Kendriya vidyalaya bondamunda , 2022</li>
+        <li><strong>High School (Class 10)</strong> – Kendriya vidyalaya bondamunda, 2020</li>
+    </ul>
+</section>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="projects">
-            <div class="project-card">
-                <h3>Project 1</h3>
-                <p>A simple project description.</p>
-                <a href="#" class="button">View</a>
-            </div>
-            <div class="project-card">
-                <h3>Project 2</h3>
-                <p>Another project description.</p>
-                <a href="#" class="button">View</a>
-            </div>
+<!-- Internships Section -->
+<section id="internship - column">
+    <h2>Internships</h2>
+    <div class="internships">
+        <div class="intern-card">
+            <h3> 💻 Artificial intelligence and Data Science</h3>
+            <p>Company: NIT Rourkela</p>
+            <p>Duration: 20 May 2024 - 05 july 2024</p>
+            <p>Developed a confused student identification.</p>
         </div>
-    </section>
+        <div class="intern-card">
+            <h3> 📊 Machine learning with python </h3>
+            <p>Company: Preppright Edtech pvt. ltd.</p>
+            <p>Duration: May 15 2025 - June 30 2025</p>
+            <p>Developed a crop price prediction app.</p>
+        </div>
+        <div class="intern-card">
+            <h3> 🤖 sales and marketing </h3>
+            <p>Company: Highradius</p>
+            <p>Duration: 2nd may 2025 - 27th may 2025</p>
+        </div>
+    </div>
+</section>
+
+
+
+  <section id="projects">
+    <h2>My Projects</h2>
+    <div class="project-container">
+        <div class="project-card">
+            <h3>🚀 Future of Cryptocurrency</h3>
+            <p>An interactive website showcasing trends, future predictions ,live price of bitcoin.</p>
+        </div>
+        <div class="project-card">
+            <h3>📄 Resume Builder App</h3>
+            <p>A web-based application to create professional resumes with real-time preview and templates.</p>
+        </div>
+        <div class="project-card">
+            <h3>🤖 Free Chatbot Application</h3>
+            <p>A simple AI chatbot  to handle FAQs and basic user queries.</p>
+        </div>
+        <div class="project-card">
+            <h3>🩺 Diabetes Prediction System</h3>
+            <p>A machine learning project to predict diabetes risk using patient health data.</p>
+        </div>
+    </div>
+</section>
+
 
     <section id="contact">
         <h2>Contact Me</h2>
