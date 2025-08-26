@@ -3,6 +3,10 @@
 <head>
     <title>My Portfolio</title>
     <style>
+        html {
+    scroll-behavior: smooth;
+    }
+   
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -29,6 +33,16 @@
             text-decoration: none;
             font-weight: bold;
         }
+        nav a:hover {
+    text-decoration: underline;
+}
+
+a.button:hover {
+    background: #574bdb;
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
         section {
             padding: 40px;
             text-align: center;
@@ -66,12 +80,35 @@
             text-decoration: none;
             border-radius: 5px;
         }
+        section {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeIn 1s forwards;
+}
+
+section:nth-of-type(1) {
+    animation-delay: 0.3s;
+}
+section:nth-of-type(2) {
+    animation-delay: 0.6s;
+}
+section:nth-of-type(3) {
+    animation-delay: 0.9s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
     </style>
 </head>
 <body>
     <header>
         <img src="Profile .jpg.jpg" alt="Profile Picture">
-        <h1>Hello, I'm Your Name</h1>
+        <h1>Hello, I'm Ch.Ramesh Prasad</h1>
         <nav>
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
